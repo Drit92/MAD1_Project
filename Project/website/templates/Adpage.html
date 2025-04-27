@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin page</title>
+    <link rel="stylesheet" href="../static/styleAd.css">
+</head>
+<body>
+
+    <div><nav>
+        <ul>
+            
+            <li><a href="/admin_login">Logout</a></li>
+            <li><a href="/admin-0trending">Trending</a></li>
+            <li><a href="{{son_details}}">Song Details</a></li>
+            <li><a href="/admin-0-edit">Edit Song Details</a></li>
+        </ul>
+    </nav></div>
+
+    <div>
+    <ul>
+        <li><div class="container shotbox"><h2>General Statistics</h2>
+            <div class="report">
+                <ul><li> Number of users : {{us_no}}</li>
+                    <li>Songs count:{{song_no}}</li>
+                    <li>Albums count:{{album_no}}</li>
+                    <li>Blocked user count:{{block_no}}</li>
+                    
+                </ul>
+               
+            </div>
+
+        </div></li>
+
+
+
+        <li><div class="songplay">
+            <div class="boxed scrollbox"><a href="/admin-0-adsongs">Add new songs</a><br><br>
+                <a href="/admin-0-delsongs">Delete songs</a>
+                {% if solist==[] %}<h2>No Songs</h2>
+                {% else %}
+                {% for song in solist %}<div>{{song.song_title}}<br></div> 
+                
+                <div>
+                <img src="../static/music_icon.jpg">
+                  <audio controls >
+                  <source src="{{song.song_path}}" type="audio/mpeg">
+                  
+                Your browser does not support the audio element.
+                </audio></div>
+                <a href="/song_lyrics/{{song.song_id}}">Read Lyrics</a>
+                <a href="/song_lyrics-{{song.song_id}}-add">Add/Edit song Lyrics </a>
+               
+                
+                {% endfor %}
+                {% endif %}
+    
+            </a></div>
+            <div class="boxed scrollbox">
+                <a href="admin-0/add_albums">Add new Albums</a><br><br>
+                <a href="admin-0/del_albums">Delete Albums</a><br><br>
+                {% if albums ==[] %}
+                <h2>No Albums</h2>
+                {% else %}
+                
+                <ul class="alik"><li>
+                    {% for ab in albums %}<div class="alik">
+                    
+                        <a href="/Albums/{{ab.album_id}}">{{ab.song_artist}}</a>
+                        
+                        <br></div>{% endfor %}
+
+                </li></ul>
+  
+        
+                {% endif %}
+                
+                
+                
+            </div></li>
+                
+
+           <li>
+            <a href="/block"> Block Users</a>
+           </li>
+
+    </ul> 
+    </div>  
+
+</body>
+</html>

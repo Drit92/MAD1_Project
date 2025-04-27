@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" >
+        <label>Enter user name to block:</label>
+        <input type="text" name="bname"/><br>
+        <input type=submit value=Block>
+
+    </form>
+    <br>
+    <span>
+        <a href="/blocked_list">See Blocked Users List</a><br>
+        <a href="/unblock">Unblock Users</a><br>
+        
+        <a href="/admin-0-adpage">Return to Admin Page</a>
+    </span>
+    <hr>
+    {% if blist!=[] %}
+    <ul>
+    {% for u in blist %}
+    <li>{{u.user_id}}. {{u.user_name}}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    
+    
+</body>
+</html>

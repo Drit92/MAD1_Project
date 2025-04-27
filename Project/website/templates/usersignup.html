@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends "logbase.html"%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    
+</head>
+<body>
+    {% block content %}
+   
+    
+    <div class="boxe">
+    <form method="POST">
+        <h3 align="center">Sign-up</h3>
+
+        <div class="form-group">
+            <label for="username1">User name</label>
+            <input type="text"
+            class="form-control"
+            id="username1"
+            name="username1"
+            placeholder="Enter username"/>
+        </div>
+
+
+        <div class="form-group">
+            <label for="password1">Password</label>
+            <input type="password"
+            class="form-control"
+            id="password1"
+            name="password1"
+            placeholder="Enter password"/>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    </form>
+    <br>
+
+    <a href="/user_login">Already signed up? Login to get Started</a><br><br>
+    <a href="/admin_login">Admin Login</a><br><br><br>
+    </div>
+    
+    
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styleplain.css">
+</head>
+<body>
+    {% if ustat=="blocked" %}
+  <h1>You have been blocked !!</h1>
+  <h2>You can't view this page </h2>
+  {% else %}
+  
+
+
+    <div class="bod">
+        {%if ustat=="admin" %}
+        <a href="/admin-0-adpage">Home</a>
+        {% else %}
+        <a href="/{{ustat}}/{{uid}}">Home</a>
+        <br><a href="/creator/{{uid}}/creatorpage">Creator Page </a>
+        {% endif %}
+        
+        <br><a href="/{{ustat}}-{{uid}}/add_albums">Add Albums</a><hr>
+
+
+
+        {% if albums %}
+    {% for al in albums %} {{al.song_artist}}<br> {% endfor %}
+    {% else %}
+    No Albums
+    {% endif %}
+
+    </div>
+
+    <div class="bod">
+        <form method=post  enctype=multipart/form-data>
+            <label>Enter Album Artist name:</label>
+            <input type="text" name="alname"/><br><br>
+            
+    
+            
+                <input type=submit value=Delete>
+              
+        </form>
+
+
+        
+    </div>
+    {% endif %}
+</body>
+</html>

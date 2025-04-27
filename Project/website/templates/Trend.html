@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styleSP.css">
+</head>
+<body>
+    
+    <div>
+        {% if slate %}
+        <h2>Latest Song Additions</h2>
+        {% for sa in slate %}
+        <div>
+            <img src="../static/music_icon.jpg">
+            
+              <audio controls >
+              <source src="{{sa.song_path}}" type="audio/mpeg">
+              
+            Your browser does not support the audio element.
+            </audio></div>
+            
+            <a href="/{{ustat}}-{{uid}}-{{sa.song_id}}/review">Give Review</a>
+            <a href="/song_lyrics/{{sa.song_id}}">Read Lyrics</a>
+            {% if ustat=="creator" %}<a href="/song_lyrics/{{sa.song_id}}/add">Add/Edit song Lyrics </a>{% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+    <hr>
+    <div>
+        {% if sbest%}
+        <h2>Songs with top Reviews</h2>
+        {% for sb in sbest %}
+        <div>
+            <img src="../static/music_icon.jpg">
+            
+              <audio controls >
+              <source src="{{sb.song_path}}" type="audio/mpeg">
+              
+            Your browser does not support the audio element.
+            </audio></div>
+            
+            <a href="/{{ustat}}-{{uid}}-{{sb.song_id}}/review">Give Review</a>
+            <a href="/song_lyrics/{{sb.song_id}}">Read Lyrics</a>
+            {% if ustat=="creator" %}<a href="/song_lyrics/{{sb.song_id}}/add">Add/Edit song Lyrics </a>{% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+    
+    
+    
+</body>
+</html>

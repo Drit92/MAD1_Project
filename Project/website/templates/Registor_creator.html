@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if msg %}
+    User :   {{msg}}
+    
+    <hr>
+    
+    {% endif %}
+    <h2><p>Registering as creator allows you to :</p></h2>
+    <ul>
+        <li>Upload songs</li>
+        <li>Delete songs </li>
+        <li>Add albums</li>
+        <li>Delete albums </li>
+    </ul>
+    <br>
+    Caution:<p> Please do not upload content which may be inappropriate or offensive or your account may be blocked by Admin. Plese ensure you do not delete Songs or Albums uploaded by other users unnnecessarily.
+    </p>
+
+    <form method="post">
+        <label>Registor as Creator?</label>
+        <input type="radio" name="reg" value="Yes"/>Yes
+        <input type="radio" name="reg" value="No"/>No
+        <button type="submit">Submit</button>
+    </form>
+
+    
+</body>
+</html>

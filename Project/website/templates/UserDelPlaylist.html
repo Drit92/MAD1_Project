@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if ustat=="blocked" %}
+    <h1>You have been blocked !!</h1>
+    <h2>You can't view this page </h2>
+    {% else %}
+    <a href="/{{ustat}}/{{uid}}">Home Page</a><br>
+    <a href="/{{ustat}}/{{uid}}/playlists">Add Playlists</a><br>
+  
+    <div>
+
+        <h2>Delete Playlist</h2>
+        <form method="post">
+            <label>Enter Playlist name:</label>
+            <input type="text" name="newpl"/>
+            
+            <input type=submit value=Submit>
+            
+        </form>
+        <br>
+       
+    </div>
+
+    <hr>
+    {% if plist !=[] %}
+    {% for pl in plist %}
+    <div><a href="/Playlists/{{pl.playlist_id}}">{{pl.playlist_name}}</a></div><br>
+    {% endfor%}
+
+    {% else %}
+    No Playlists
+    {% endif %}
+    
+    {% endif %}
+</body>
+</html>

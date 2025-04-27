@@ -1,0 +1,96 @@
+body{
+    background-color: rgb(228, 238, 238);
+}
+
+nav{
+    border: 3px solid rgb(57, 122, 86);
+    border-radius: 5px;
+    background-color: rgb(55, 172, 172);
+    display: flex;
+    position:relative;
+}
+
+nav ul{
+    display: flex;    
+}
+nav ul li { 
+    list-style: none;
+    position: relative;  
+    font-size: medium;
+    font-weight: 600;
+    color: rgb(7, 7, 7);
+    margin-right: 30px;
+}
+
+.boxed{
+    border: none; 
+    width: 95%;
+    height: 50vh;
+    margin-top: 10px;
+    margin-left: 3%;
+    align-items: center;
+    background-color:  rgb(55, 172, 172);
+}
+
+body .boxed h1{
+    margin-left: 10%;
+    text-decoration:overline;
+    font-style: oblique;
+}
+
+body ul{
+    margin-top: 20px;
+    list-style: none;
+}
+
+.container{
+    background-color: rgb(55, 172, 172);
+}
+
+.shotbox{
+    display: flexbox;
+    background-color:cadetblue;
+    margin-bottom: 5%;
+    
+}
+.report{
+    display: flex;
+    align-items: center;
+    width:90%;
+    height: 80%;
+    background-color: aliceblue;
+    margin-left: 3%;
+    margin-bottom:3%;
+    border-bottom: solid;
+}
+.songplay{
+    display: flex;
+}
+.scrollbox{
+
+    overflow-y: scroll
+}
+
+img{
+    height: 60px;
+    border-radius: 50%;
+}
+
+.alik{
+    list-style-type: disc;
+    
+}
+
+.alik li::marker {
+    font-size: 1.5rem;
+}
+
+.alik a{
+    color: black;
+    font-size: larger;
+    margin-left: 5px;
+    
+
+}
+
+

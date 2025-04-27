@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styleplain.css">
+</head>
+<body>
+    {% if ustat=="blocked" %}
+    <h1>You have been blocked !!</h1>
+    <h2>You can't view this page </h2>
+    {% else %}
+
+    
+    <div class="liste bod">
+
+        {%if ustat=="admin" %}
+        <a href="/admin-0-adpage">Home</a>
+        {% else %}
+        <a href="/{{ustat}}/{{uid}}">Home</a>
+        {% endif %}
+      
+    <hr>
+        
+    
+
+    {% if solist==[] %}<h2>No Songs</h2>
+    {% else %}
+    <table border="1">
+        <tr>
+            <th>..</th><th>Song Title</th> <th>Song Artist</th>
+        </tr>
+        
+        {% for song in solist %}
+        
+        <tr>
+            <td>{{song.song_id}}</td><td>{{song.song_title}}</td><td>{{song.song_artist}}</td>
+        </tr>
+         
+          {% endfor %}</table>
+    
+    {% endif %}
+    </div>
+    <div class="bod">
+    <form method=post >
+        <label>Enter Song Title:</label>
+        <input type="text" name="soname"/>
+        
+        
+
+       <br> <label>Change Song Title to :</label>
+        <textarea name="newsoname" >{% if ename %}{{ename}}{% endif %}</textarea>
+        
+
+       <br> <label>Change Song Artist :</label>
+        <textarea name="newart">{% if eart %}{{eart}}{% endif %}</textarea>
+        
+        
+
+
+        <button type="submit">Enter</button>
+        <div>
+            
+            {%if ustat=="admin" %}
+            {% else %}
+            <br><a href="/{{ustat}}/{{uid}}/creatorpage">Creator Page </a>
+            {% endif %}
+            
+
+        </div>
+    </form>
+    <br>
+    
+</div>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styleSP.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+  {% if ustat=="blocked" %}
+  <h1>You have been blocked !!</h1>
+  <h2>You can't view this page </h2>
+  {% else %}
+    <div>
+      <nav>
+        <ul>
+          <li><a href="/logout">Logout</a></li>
+          <li><a href="/{{ustat}}-{{uid}}trending">Trending</a></li>
+          
+        
+
+        <li>
+        <div>
+          <a href="/search"><h3>Search Songs</h3></a>     
+          
+      </div>
+    </li>
+
+
+   <div class="topcorner">
+    <div class="topside">
+      {% if ustat=="creator" %}
+      <li ><a href="/creator/{{uid}}/creatorpage">Creator Page </a></li>
+      {% else %}
+      <li ><a href="/{{uid}}/registor_as_creator">Registor as Creator </a></li>
+      
+      {% endif %}
+    
+  </div>
+  </div>
+
+
+    </ul>
+
+      </nav>
+    </div>
+
+<div >
+  
+  <a href="/{{ustat}}/{{uid}}/playlists">Add Playlists</a><br>
+  <a href="/{{ustat}}/{{uid}}/delplaylists">Delete Playlists</a>
+  
+</div>
+
+
+    <div class="pagepart">
+    
+    <div class="bod">
+         <h1>Songs</h1>
+         <div class="soap">
+          
+          {% if solist==[] %}
+          <h5>No songs available</h5>
+          {% else %}
+          <ul>
+              {% for sol in solist %}
+              <li class="boxx">
+              <div class="son_con">
+                <div><h2>{{sol.song_title}}</h2>{{sol.song_artist}}</div>
+                <div>
+                <img src="../static/music_icon.jpg">
+                
+                  <audio controls >
+                  <source src="{{sol.song_path}}" type="audio/mpeg">
+                  
+                Your browser does not support the audio element.
+                </audio></div>
+                
+                <a href="/{{ustat}}-{{uid}}-{{sol.song_id}}/review">Give Review</a>
+                <a href="/song_lyrics/{{sol.song_id}}">Read Lyrics</a>
+                {% if ustat=="creator" %}<a href="/song_lyrics-{{sol.song_id}}-add">Add/Edit song Lyrics </a>{% endif %}
+               
+
+              </div>
+              
+            </li>
+
+              {% endfor %}
+            </ul>
+          {% endif %}
+        
+      </div>
+    </div>
+    
+    <div class="bod">
+         <div class="subbox">
+          <h2>Albums</h2>
+         {% if ablist==[] %}
+         <h5>No Albums </h5>
+         {% else %}
+             {% for al in ablist %}
+             <div class="boxx"><a href="/Albums/{{al.album_id}}">{{al.song_artist}}</a></div>
+             {% endfor %}         
+         {% endif %}
+         </div>
+
+
+         <div class="subbox">
+          <h2>Playlists</h2>
+         
+         {% if plist==[] %}
+         <h5>No Playlists </h5>
+         {% else %}
+             {% for pl in plist %}
+             <div class="boxx"><a href="/Playlists/{{pl.playlist_id}}">{{pl.playlist_name}}</a></div>
+             {% endfor %}   
+         
+         {% endif %}
+         </div>
+    </div>
+
+    
+  </div>
+     <!--
+    <div style="border: 1px solid black; width: 80%; height: 350px; margin-top: 10px;"></div>
+     -->
+    {% endif %}
+</body>
+</html>

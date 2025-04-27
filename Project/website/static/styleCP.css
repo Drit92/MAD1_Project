@@ -1,0 +1,28 @@
+
+
+
+
+.boxed{
+    border: none; 
+    width: 95%;
+    height: 20vh;
+    margin-top: 10px;
+    margin-left: 3%;
+    align-items: center;
+    background-color:rgb(247, 244, 249);
+    /*#background-color: #a3b1d8;*/
+    
+}
+
+
+
+body .boxed h1{
+    margin-left: 10%;
+    text-decoration:overline;
+    font-style: oblique;
+}
+a{
+    font-size: large;
+}
+
+

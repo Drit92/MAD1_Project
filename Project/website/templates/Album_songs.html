@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styleSP.css">
+</head>
+<body>
+    
+    <h1>{{abe.song_artist}}</h1><hr>
+    {% for song in abe.works %}
+    <div>
+       <h3> {{song.song_title}} </h3><br>
+    </div>
+       
+        <div class="sonbx">
+            <img src="../static/music_icon.jpg">
+            <audio controls play>
+            <source src="{{song.song_path}}" type="audio/mpeg">
+            
+          Your browser does not support the audio element.
+          </audio></div>
+        </div>
+        
+    {% endfor %}
+
+    
+</body>
+</html>

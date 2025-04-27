@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="../static/styleSP.css">
+<body>
+    
+<h3>Search song/album:</h3>
+
+    <form method="post" >
+        <input placeholder="Search" name="worrd">
+        <button  type="submit">Search</button>
+    </form>   
+    {% if mssg %}
+    <h3>{{mssg}}</h3>
+    {% endif %}  
+<hr>
+
+
+    {% if foundSong %}
+    <h3>Songs</h3>
+    <div>
+
+        <div class="son_con"> 
+            <div><h2>{{foundSong.song_title}}</h2></div>
+          <div>           
+            <img src="../static/music_icon.jpg">
+            
+              <audio controls >
+              <source src="{{foundSong.song_path}}" type="audio/mpeg">              
+            Your browser does not support the audio element.
+            </audio></div>
+
+          </div>
+    
+    
+    </div>
+    <hr>
+    {% endif %}
+    {% if foundArtist %}
+    <h3>Songs</h3>
+       {% for sar in foundArtist %}
+    <div>{{sar.song_title}}<br>
+        <div class="son_con"> 
+            <img src="../static/music_icon.jpg">
+            <div><h2>{{sar.song_title}}</h2></div>
+          <div>           
+              <audio controls >
+              <source src="{{sar.song_path}}" type="audio/mpeg">              
+            Your browser does not support the audio element.
+            </audio></div>
+
+          </div>
+          {% endfor %}
+    
+    
+    </div>
+    <hr>
+    {% endif %}
+
+    {% if foundAlbum %}
+    <h3>Albums</h3>
+    
+    <div>
+        <a href="/Albums/{{foundAlbum.album_id}}">{{ foundAlbum.song_artist }}</a><br>
+    </div>
+    <hr>
+    {% endif %}
+    
+    
+</body>
+</html>

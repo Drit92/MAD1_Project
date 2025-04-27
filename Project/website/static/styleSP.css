@@ -1,0 +1,119 @@
+
+.bode{
+    
+    border: solid rgb(78, 73, 73); 
+    border-width: 85%; 
+    border-bottom:10%;  
+    display: grid;
+    place-items: center;
+    
+    
+}
+.bod{
+    
+    width: fit-content;
+    width: 50%;
+    height: 650px;
+    margin-left: 10px;
+    align-items: left;
+}
+nav{
+    border: 3px solid rgb(122, 186, 169);
+    background: #7bf2b6;
+    display: flex;
+    position: relative;
+    width:full;
+
+}
+nav ul{
+    display: flex;    
+}
+nav ul li { 
+    list-style: none;
+    position: relative;  
+    margin-top:25px;
+    font-size: medium;
+    font-weight: 600;
+    color: rgb(60, 42, 84);
+    margin-right: 30px;
+}
+
+nav ul li a {
+    color: rgb(72, 43, 98);
+}
+
+.topcorner{
+    color: rgb(185, 39, 39);
+    position: absolute;
+    right:0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.topside{
+    display: flex;
+    position: relative;
+}
+
+.song_box{
+    background-color: rgb(129, 133, 136);
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 80%;
+    width: 20%;
+
+
+}
+img{
+    border-radius: 10%;
+    ruby-align: distribute-space;
+    
+
+}
+
+.soap{
+    
+    overflow-y: scroll;
+}
+
+.son_con{
+    display: auto;
+   
+    
+}
+
+img{
+    height:60px;
+    margin-bottom: 20px;
+}
+audio{
+    margin-top: 15px;
+    
+}
+
+.boxx{
+    display: flex;
+    background-color: rgba(254, 245, 237, 0.603);
+    
+    margin-top: 1%;
+
+
+}
+.boxx h2{
+    font-size: medium;
+    position: relative;
+}
+
+.pagepart{
+    display: flex;
+}
+
+.subbox{
+    width:150%;
+    height: 50%;
+    overflow-y: scroll;
+    margin-top: 5%;
+    background-color: rgb(246, 246, 245);
+
+}

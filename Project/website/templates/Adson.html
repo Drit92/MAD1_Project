@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styleplain.css">
+</head>
+<body>
+    {% if ustat=="blocked" %}
+  <h1>You have been blocked !!</h1>
+  <h2>You can't view this page </h2>
+  {% else %}
+  
+  
+    <div class="liste bod">
+
+        {%if ustat=="admin" %}
+        <a href="/admin-0-adpage">Home</a>
+        {% else %}
+        <a href="/{{ustat}}/{{uid}}">Home</a>
+        {% endif %}
+        <hr>
+    
+    {% if songs %}
+    {% for song in songs %}<h3>{{song.song_title}}</h3>
+    <a href="/song_lyrics-{{song.song_id}}-add">Add/Edit song lyics</a><br> <hr>{% endfor %}
+    {% endif %}
+    
+    </div>
+    <br><br>
+    <div class="bod ">
+    <form method=post  enctype=multipart/form-data>
+        <label>Enter song Title:</label>
+        <input type="text" name="sname"/><br><br>
+
+        <label>Enter song artist name:</label>
+        <input type="text" name="saname"/><br><br>
+        
+
+        <label>Enter file :</label>
+        <input type="file" name="file"><br><br>
+
+        
+            <input type=submit value=Upload>
+            <div><a href="/{{ustat}}-{{uid}}-delsongs">Delete song</a></div>
+          
+    </form>
+    <br>
+    
+</div>
+    {% endif %}
+</body>
+</html>

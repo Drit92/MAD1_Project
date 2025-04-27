@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class>
+    
+        {% if ablist !=[] %}
+        {% for ab in ablist %} {{ab.song_artist}}<br> {% endfor %}
+        <a href="/Albums/{{ab.album_id}}">Open Album</a>
+        {% else %}
+        No Albums
+        {% endif %}
+        
+        </div>
+    
+</body>
+</html>

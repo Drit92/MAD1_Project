@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <h3><a href="/admin-0-adsongs">Add Songs</a></h3><br><br>
+    <h3><a href="/admin-0-delsongs">Delete Songs</a></h3><br><br>
+     </div>
+
+    <table border="2">
+        <tr><th>song title</th>
+            <th>song artist</th>
+            <th>song avg review</th>
+            <th>date time</th>
+
+        </tr>
+        {% for song in songs%}
+        <tr>
+            <td>{{song.song_title}}</td>
+            <td>{{song.song_artist}}</td>
+            <td>{{song.song_avg_review}}</td>
+            <td>{{song.song_datetime}}</td>
+
+            <td>
+                <div>
+                    
+                <audio controls >
+                    <source src="{{song.song_path}}" type="audio/mpeg">
+                    
+                  Your browser does not support the audio element.
+                </audio>
+                </div>
+
+            </td>
+
+            
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    
+</body>
+</html>

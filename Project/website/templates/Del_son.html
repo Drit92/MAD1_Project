@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styleplain.css">
+</head>
+<body>
+    {% if ustat=="blocked" %}
+    <h1>You have been blocked !!</h1>
+    <h2>You can't view this page </h2>
+    {% else %}
+
+    
+    <div class="liste bod">
+
+        {%if ustat=="admin" %}
+        <a href="/admin-0-adpage">Home</a>
+        {% else %}
+        <a href="/{{ustat}}/{{uid}}">Home</a>
+        {% endif %}
+      
+    
+<hr>
+
+    {% if solist==[] %}<h2>No Songs</h2>
+    {% else %}
+    {% for song in solist %} {{song.song_title}}<br> {% endfor %}
+    {% endif %}
+    </div>
+    <div class="bod">
+    <form method=post >
+        <label>Enter song Title:</label>
+        <input type="text" name="soname"/>
+        <button type="submit">Delete</button>
+        <div><a href="/{{ustat}}-{{uid}}-adsongs">Add Songs</a></div>
+    </form>
+    <br>
+    
+</div>
+{% endif %}
+</body>
+</html>
